@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import data from './data';
@@ -6,6 +6,23 @@ import data from './data';
 function App() {
   const [people, setPeople] = useState(data);
   const [personIndex, setPersonIndex] = useState(0);
+
+  useEffect(() => {
+    const lastIndex = people.length - 1;
+    if (personIndex < 0) {
+      setPersonIndex(lastIndex);
+    }
+    if (personIndex > lastIndex) {
+      setPersonIndex(0);
+    }
+  }, [personIndex, people]);
+
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setPersonIndex(personIndex + 1);
+    }, 3000);
+    return () => clearInterval(slider);
+  }, [personIndex]);
 
   return (
     <section className="section">
@@ -40,10 +57,20 @@ function App() {
             </article>
           );
         })}
-        <button className="prev">
+        <button
+          className="prev"
+          onClick={() => {
+            setPersonIndex(personIndex - 1);
+          }}
+        >
           <FiChevronLeft />
         </button>
-        <button className="next">
+        <button
+          className="next"
+          onClick={() => {
+            setPersonIndex(personIndex + 1);
+          }}
+        >
           <FiChevronRight />
         </button>
       </div>
