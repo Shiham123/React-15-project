@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { Fragment, useEffect } from 'react';
 
-const Alert = () => {
+const Alert = (props) => {
+  const { type, msg, removeAlert } = props;
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      removeAlert();
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <div>
-      <p>Alert</p>
-    </div>
+    <Fragment>
+      <p className={`alert alert-${type}`}>{msg}</p>
+    </Fragment>
   );
 };
 
