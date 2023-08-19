@@ -40,7 +40,9 @@ function App() {
         <h4>List goes here</h4>
         {list.map((color, index) => {
           const hex = color.hex;
-          return <SingleColor key={index} {...color} hexColor={hex} />;
+          return (
+            <SingleColor key={index} index={index} {...color} hexColor={hex} />
+          );
         })}
       </section>
     </Fragment>

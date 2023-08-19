@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 const SingleColor = (props) => {
   const { rgb, weight, index, hexColor } = props;
   const [alert, setAlert] = useState(false);
-  const bcg = rgb.join(',');
+  const backgroundRgb = rgb.join(',');
   // const hex = rgbToHex(...rgb);
 
   const hexValue = `#${hexColor}`;
@@ -18,8 +18,8 @@ const SingleColor = (props) => {
 
   return (
     <article
-      className={`color ${index > 10 && 'color-light'}`}
-      style={{ backgroundColor: `rgb(${bcg})` }}
+      className={`color ${index >= 6 && 'color-light'}`}
+      style={{ backgroundColor: `rgb(${backgroundRgb})` }}
       onClick={() => {
         setAlert(true);
         navigator.clipboard.writeText(hexValue);
