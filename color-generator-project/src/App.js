@@ -1,15 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import Values from 'values.js';
+import SingleColor from './singleColor';
 
 function App() {
   const [color, setColor] = useState('');
   const [error, setError] = useState(false);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(new Values('#121212').all(10));
 
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
       let colors = new Values(color).all(10);
+      setList(colors);
     } catch (error) {
       setError(true);
       console.log(error.message);
@@ -36,6 +38,10 @@ function App() {
       </section>
       <section className="colors">
         <h4>List goes here</h4>
+        {list.map((color, index) => {
+          const hex = color.hex;
+          return <SingleColor key={index} {...color} hexColor={hex} />;
+        })}
       </section>
     </Fragment>
   );
