@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import Navbar from './navbar';
 
 function App() {
   return (
     <Fragment>
-      <h1>hlw</h1>
+      <Navbar />
     </Fragment>
   );
 }
