@@ -1,9 +1,16 @@
 import React, { Fragment } from 'react';
+import Navbar from './navbar';
+import Sidebar from './sidebar';
+import Hero from './hero';
+import Submenu from './submenu';
 
 function App() {
   return (
     <Fragment>
-      <h1>App</h1>
+      <Navbar />
+      <Sidebar />
+      <Hero />
+      <Submenu />
     </Fragment>
   );
 }
