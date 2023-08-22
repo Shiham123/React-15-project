@@ -419,7 +419,7 @@ Stripe Styles
 .submenu h4 {
   margin-bottom: 1.5rem;
 }
-.submenu-center a {
+.submenu-center p {
   width: 10rem;
   display: block;
   color: var(--clr-grey-1);

@@ -5,13 +5,25 @@ import { AppContext } from './context';
 
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useContext(AppContext);
+
   const displaySubmenu = (event) => {
-    openSubmenu();
+    const page = event.target.textContent;
+
+    const tempBtn = event.target.getBoundingClientRect();
+    const center = (tempBtn.left + tempBtn.right) / 2;
+    const bottom = tempBtn.bottom - 3;
+    openSubmenu(page, { center, bottom });
+  };
+
+  const handleSubmenu = (event) => {
+    if (!event.target.classList.contains('link-btn')) {
+      closeSubmenu();
+    }
   };
 
   return (
     <Fragment>
-      <nav className="nav">
+      <nav className="nav" onMouseOver={handleSubmenu}>
         <div className="nav-center">
           <div className="nav-header">
             <img src={logo} className="nav-logo" alt="logo" />
@@ -22,17 +34,17 @@ const Navbar = () => {
           <ul className="nav-links">
             <li>
               <button className="link-btn" onMouseOver={displaySubmenu}>
-                product
+                products
               </button>
             </li>
             <li>
               <button className="link-btn" onMouseOver={displaySubmenu}>
-                Developer
+                developers
               </button>
             </li>
             <li>
               <button className="link-btn" onMouseOver={displaySubmenu}>
-                Company
+                company
               </button>
             </li>
           </ul>
