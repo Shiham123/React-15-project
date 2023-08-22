@@ -1,18 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import logo from './logo.svg';
 import { FaTimes } from 'react-icons/fa';
 import { social, links } from './data';
+import { AppContext } from './context';
 
 const Sidebar = () => {
+  const { isSidebarOpen, closeSidebar } = useContext(AppContext);
   return (
     <Fragment>
-      <aside className="sidebar show-sidebar">
+      <aside
+        className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}
+      >
         <div className="sidebar-header">
           <img src={logo} alt="Logo" className="logo" />
-          <button className="close-btn">
+          <button className="close-btn" onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
+
         <ul className="links">
           {links.map((link) => {
             const { id, url, text, icon } = link;
@@ -24,6 +29,7 @@ const Sidebar = () => {
             );
           })}
         </ul>
+
         <ul className="social-icons">
           {social.map((icons) => {
             const { id, url, icon } = icons;
