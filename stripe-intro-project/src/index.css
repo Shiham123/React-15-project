@@ -173,7 +173,7 @@ Stripe Styles
 .nav-links {
   display: none;
 }
-.signin-btn {
+.signIn-btn {
   display: none;
 }
 .hero::before {
@@ -183,7 +183,7 @@ Stripe Styles
   height: 65%;
   top: 0;
   left: 0;
-  background: url(../img/hero.svg);
+  background: url(./img/hero.svg);
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
@@ -226,7 +226,7 @@ Stripe Styles
   .toggle-btn {
     display: none;
   }
-  .signin-btn {
+  .signIn-btn {
     display: inline-block;
   }
   .nav-links {
@@ -348,19 +348,19 @@ Stripe Styles
 .sidebar article {
   margin-bottom: 2rem;
 }
-.sidebar-sublinks {
+.sidebar-subLinks {
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 0.25rem;
 }
-.sidebar-sublinks a {
+.sidebar-subLinks p {
   display: block;
   color: var(--clr-grey-1);
   text-transform: capitalize;
   display: flex;
   align-items: center;
 }
-.sidebar-sublinks svg {
+.sidebar-subLinks svg {
   color: var(--clr-grey-5);
   margin-right: 1rem;
 }

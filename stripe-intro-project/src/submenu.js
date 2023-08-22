@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from './context';
 
 const Submenu = () => {
-  return <div>Submenu</div>;
+  const { isSubmenuOpen } = useContext(AppContext);
+  return (
+    <aside className={`${isSubmenuOpen ? 'submenu show' : 'submenu'}`}>
+      Submenu
+    </aside>
+  );
 };
 
 export default Submenu;
