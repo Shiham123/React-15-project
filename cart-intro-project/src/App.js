@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Navbar from './navbar';
+import CartContainer from './cartContainer';
 
 const App = () => {
   return (
-    <div>
-      <h1>this cart intro project</h1>
-    </div>
+    <Fragment>
+      <Navbar />
+      <CartContainer />
+    </Fragment>
   );
 };
 
