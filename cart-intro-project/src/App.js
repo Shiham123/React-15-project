@@ -1,9 +1,9 @@
-import React, { Fragment, useContext } from 'react';
-import Navbar from './navbar';
+import React, { useContext } from 'react';
 import CartContainer from './cartContainer';
+import Navbar from './navbar';
 import { AppContext } from './context';
 
-const App = () => {
+function App() {
   const { loading } = useContext(AppContext);
   if (loading) {
     return (
@@ -12,13 +12,12 @@ const App = () => {
       </div>
     );
   }
-
   return (
-    <Fragment>
+    <main>
       <Navbar />
       <CartContainer />
-    </Fragment>
+    </main>
   );
-};
+}
 
 export default App;

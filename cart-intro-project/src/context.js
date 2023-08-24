@@ -1,8 +1,7 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import cartItems from './data';
 import Reducer from './reducer';
-
-const url = 'https://course-api.com/react-useReducer-cart-project';
+// const url = 'https://course-api.com/react-useReducer-cart-project';
 const AppContext = React.createContext();
 
 const initialState = {
@@ -18,22 +17,30 @@ const AppProvider = ({ children }) => {
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
   };
-
-  const removeItem = (id) => {
+  const remove = (id) => {
     dispatch({ type: 'REMOVE', payload: id });
   };
-
-  const increaseItem = (id) => {
+  const increase = (id) => {
     dispatch({ type: 'INCREASE', payload: id });
   };
 
-  const decreaseItem = (id) => {
+  const decrease = (id) => {
     dispatch({ type: 'DECREASE', payload: id });
   };
 
+  useEffect(() => {
+    dispatch({ type: 'GET_TOTALS' });
+  }, [state.cart]);
+
   return (
     <AppContext.Provider
-      value={{ ...state, clearCart, removeItem, increaseItem, decreaseItem }}
+      value={{
+        ...state,
+        clearCart,
+        remove,
+        increase,
+        decrease,
+      }}
     >
       {children}
     </AppContext.Provider>
