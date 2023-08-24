@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from './context';
 
 const Navbar = () => {
+  const { amount } = useContext(AppContext);
   return (
     <nav>
       <div className="nav-center">
