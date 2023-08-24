@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../context';
+import Loading from './loading';
 
 const CocktailList = () => {
-  return <div>CocktailList CocktailList</div>;
+  const { loading, cocktails } = useContext(AppContext);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  return <div></div>;
 };
 
 export default CocktailList;
