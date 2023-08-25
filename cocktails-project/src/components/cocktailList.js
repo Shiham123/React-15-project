@@ -1,22 +1,23 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context';
-import Loading from './loading';
+import React from 'react';
 import Cocktail from './cocktail';
+import Loading from './loading';
+import { useGlobalContext } from '../context';
 
-const CocktailList = () => {
-  const { loading, cocktails } = useContext(AppContext);
-
+export default function CocktailList() {
+  const { cocktails, loading } = useGlobalContext();
   if (loading) {
     return <Loading />;
   }
-
   if (cocktails.length < 1) {
-    return <h2 className="section-title">No cocktails match your search</h2>;
+    return (
+      <h2 className="section-title">
+        no cocktails matched your search criteria
+      </h2>
+    );
   }
-
   return (
     <section className="section">
-      <h2 className="section-title">Cocktails</h2>
+      <h2 className="section-title">cocktails</h2>
       <div className="cocktails-center">
         {cocktails.map((item) => {
           return <Cocktail key={item.id} {...item} />;
@@ -24,6 +25,4 @@ const CocktailList = () => {
       </div>
     </section>
   );
-};
-
-export default CocktailList;
+}

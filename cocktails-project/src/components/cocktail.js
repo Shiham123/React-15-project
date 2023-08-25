@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const Cocktail = (props) => {
-  const { glass, id, image, name, info } = props;
-
+export default function Cocktail({ image, name, id, info, glass }) {
   return (
     <article className="cocktail">
       <div className="img-container">
@@ -13,12 +10,10 @@ const Cocktail = (props) => {
         <h3>{name}</h3>
         <h4>{glass}</h4>
         <p>{info}</p>
-        <Link to={`/cocktail/:${id}`} className="btn btn-primary btn-details">
-          Details
+        <Link to={`/cocktail/${id}`} className="btn btn-primary btn-details">
+          details
         </Link>
       </div>
     </article>
   );
-};
-
-export default Cocktail;
+}

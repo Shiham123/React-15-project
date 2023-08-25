@@ -1,12 +1,12 @@
 import React from 'react';
 
-const About = () => {
+function About() {
   return (
     <section className="section about-section">
-      <h1 className="section-title">About us</h1>
-      <p>this is about us page</p>
+      <h1 className="section-title">about us</h1>
+      <p>this about page</p>
     </section>
   );
-};
+}
 
 export default About;

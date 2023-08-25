@@ -1,14 +1,12 @@
 import React from 'react';
-import SearchForm from '../components/searchForm';
 import CocktailList from '../components/cocktailList';
+import SearchForm from '../components/searchForm';
 
-const Home = () => {
+export default function Home() {
   return (
     <main>
       <SearchForm />
       <CocktailList />
     </main>
   );
-};
-
-export default Home;
+}
