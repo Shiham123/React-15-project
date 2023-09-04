@@ -2,32 +2,30 @@ import React, { useContext } from 'react';
 import { AppContext } from './context';
 
 const SetupForm = () => {
-  const { handleSubmit, handleChange, quiz, error } = useContext(AppContext);
+  const { quiz, handleChange, handleSubmit, error } = useContext(AppContext);
   return (
     <main>
       <section className="quiz quiz-small">
         <form className="setup-form">
-          <h2>Setup quiz</h2>
-          {/* Amount */}
-
+          <h2>setup quiz</h2>
+          {/* amount */}
           <div className="form-control">
-            <label htmlFor="amount">Number of Question</label>
+            <label htmlFor="amount">number of questions</label>
             <input
               type="number"
               name="amount"
               id="amount"
-              value={quiz.value}
+              value={quiz.amount}
               onChange={handleChange}
               className="form-input"
               min={1}
               max={50}
             />
           </div>
-
-          {/* Category */}
+          {/* category */}
 
           <div className="form-control">
-            <label htmlFor="category">Category</label>
+            <label htmlFor="category">category</label>
             <select
               name="category"
               id="category"
@@ -35,16 +33,15 @@ const SetupForm = () => {
               value={quiz.category}
               onChange={handleChange}
             >
-              <option value="sports">Sports</option>
+              <option value="sports">sports</option>
               <option value="history">history</option>
-              <option value="politics">Politics</option>
+              <option value="politics">politics</option>
             </select>
           </div>
-
           {/* difficulty */}
 
           <div className="form-control">
-            <label htmlFor="difficulty">Select Difficulty</label>
+            <label htmlFor="difficulty">select difficulty</label>
             <select
               name="difficulty"
               id="difficulty"
@@ -52,9 +49,9 @@ const SetupForm = () => {
               value={quiz.difficulty}
               onChange={handleChange}
             >
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
+              <option value="easy">easy</option>
+              <option value="medium">medium</option>
+              <option value="hard">hard</option>
             </select>
           </div>
           {error && (
@@ -63,7 +60,7 @@ const SetupForm = () => {
             </p>
           )}
           <button type="submit" onClick={handleSubmit} className="submit-btn">
-            Start
+            start
           </button>
         </form>
       </section>

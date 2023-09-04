@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 const Loading = () => {
   return (
     <main>
-      <div className="loading"></div>;
+      <div className="loading"></div>
     </main>
   );
 };
